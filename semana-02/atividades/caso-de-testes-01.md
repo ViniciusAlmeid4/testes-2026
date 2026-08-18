@@ -1,23 +1,21 @@
-# Caso de Teste - Reserva de sala
+# Caso de Teste — Reserva de Sala
 
 ## Descrição:
-    Este caso de teste visa validar a efetividade e tratativa de erros para a função de reserva de sala, focando em disponibilidade, viabilidade da junção sala e turma, horários e permissionamentos. Verificando se as reservas de sala de aula atendem as necessidades apresentadas nos requisitos RF-01, RF-02, RF-03, RF-04, RF-05 e RNF-03.
+Este caso de teste visa validar a efetividade e o tratamento de erros para a função de reserva de sala, focando em disponibilidade, viabilidade da junção entre sala e turma, horários e permissões, verificando se as reservas de sala de aula atendem às necessidades apresentadas nos requisitos RF-01, RF-02, RF-03, RF-04, RF-05 e RNF-03.
 
 ## Pré-condições:
-    Sistema rodando com acesso ao banco de dados. Devem também já haver turmas, salas e professores cadastrados para serem utilizados nos testes.
+Sistema em funcionamento, com acesso ao banco de dados. Também deve haver turmas, salas e professores cadastrados para serem utilizados nos testes.
 
+- Sala 18, com capacidade para 40 alunos, vinculada à unidade 1.
+- Sala 10, com capacidade para 20 alunos, vinculada à unidade 1.
+- Sala 7, com capacidade para 40 alunos, vinculada à unidade 1.
 
+- Turma 6-A, com 25 alunos cadastrados, vinculada à unidade 1.
 
-    - Sala 18 com capacidade de 40 alunos e é vinculada a unidade 1. 
-    - Sala 10 com capacidade de 20 alunos e é vinculada a unidade 1.
-    - Sala 7 com capacidade de 40 alunos e é vinculada a unidade 1.
+- Usuário Pedro está cadastrado, vinculado à unidade 1, e é do tipo professor.
+- Usuário Vitor está cadastrado, vinculado à unidade 2, e é do tipo professor.
 
-    - Turma 6-A possui 25 alunos cadastrados e é vinculada a unidade 1.
-
-    - Usuário Pedro está cadastrado, vinculado a unidade 1 e é do tipo professor.
-    - Usuário Vitor está cadastrado, vinculado a unidade 2 e é do tipo professor.
-
-    - Reserva da sala 7 com data 2026/03/10 7:30 as 9:30, pelo usuário Vitor para a turma 6-A.
+- Reserva da sala 7, com data de 2026/03/10, das 7h30 às 9h30, pelo usuário Vitor, para a turma 6-A.
 
 ## Passos:
 1. Acessar página de reservas.
@@ -91,6 +89,7 @@
 
     - Resultado Esperado:
         - Reserva é recusada pois o horário solicitado já tem alguma reserva.
-        - Sistema retorna que a reserva não foi efetuada e indica o problema por meio da mensagem de erro + ... .
+        - Sistema retorna que a reserva não foi efetuada e indica o problema por meio da mensagem de erro + indica possiveis trocas de sala ou horários.
 
 ## Pós-condições:
+O modal de reservas é fechado; em seguida, uma mensagem de confirmação é apresentada ao usuário, e a lista de seus agendamentos é atualizada. Além disso, esse agendamento fica disponível para consulta de outros usuários, permitindo identificar sobreposições e informá-los sobre ele.
