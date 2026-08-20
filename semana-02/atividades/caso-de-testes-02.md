@@ -2,25 +2,25 @@
 
 ## Descrição:
 
-    Este caso de teste visa validar as regras e permissões para alteração e cancelamento de reservas, garantindo que apenas a coordenação possa modificar agendamentos de terceiros (RF-06). Verifica também a liberação de horários com registro de histórico (RF-07), a geração de notificações para os envolvidos (RF-08), o tempo de resposta das buscas (RNF-01) e o registro da trilha de auditoria (RNF-02).
+Este caso de teste visa validar as regras e permissões para alteração e cancelamento de reservas, garantindo que apenas a coordenação possa modificar agendamentos de terceiros (RF-06). Verifica também a liberação de horários com registro de histórico (RF-07), a geração de notificações para os envolvidos (RF-08), o tempo de resposta das buscas (RNF-01) e o registro da trilha de auditoria (RNF-02).
 
 ## Pré-condições:
 
-    Sistema rodando com acesso ao banco de dados. Devem existir usuários, turmas, salas e reservas previamente cadastrados.
+Sistema rodando com acesso ao banco de dados. Devem existir usuários, turmas, salas e reservas previamente cadastrados.
 
-    - Sala 35 com capacidade de 30 alunos e vinculada à unidade 1.
-    - Turma 4-B vinculada à unidade 1.
+- Sala 35 com capacidade de 30 alunos e vinculada à unidade 1.
+- Turma 4-B vinculada à unidade 1.
 
-    - Usuário Carlos está cadastrado, vinculado à unidade 1 e é do tipo COORDENADOR.
-    - Usuário Marcos está cadastrado, vinculado à unidade 1 e é do tipo PROFESSOR.
-    - Usuário João está cadastrado, vinculado à unidade 1 e é do tipo PROFESSOR.
+- Usuário Carlos está cadastrado, vinculado à unidade 1 e é do tipo COORDENADOR.
+- Usuário Marcos está cadastrado, vinculado à unidade 1 e é do tipo PROFESSOR.
+- Usuário João está cadastrado, vinculado à unidade 1 e é do tipo PROFESSOR.
 
-    - Reserva da sala 35 com data 2026/09/12 21:00 às 22:30, criada pelo usuário João para a turma 4-B.
+- Reserva da sala 35 com data 12/09/2026 21:00 às 22:30, criada pelo usuário João para a turma 4-B.
 
 ## Passos:
 
 1. Acessar a página de reservas.
-2. Utilizar a busca para encontrar o agendamento específico (Sala 35, 2026/09/12).
+2. Utilizar a busca para encontrar o agendamento específico (Sala 35, 12/09/2026).
 3. Clicar no botão para alterar ou cancelar a reserva pertencente ao outro professor.
 4. Confirmar a ação no modal do sistema.
 
@@ -40,7 +40,7 @@
 2.  - Dados de teste:
       - Usuário logado: Marcos (PROFESSOR).
       - Alvo da ação: Cancelar reserva da Sala 35 do usuário João.
-      - Horário da reserva: 12/09/2026 as 20:00.
+      - Horário da reserva: 12/09/2026 as 21:00.
 
     - Resultado Esperado:
       - A ação é bloqueada pelo sistema retornando erro de permissão negada (permission_denied).
@@ -64,4 +64,4 @@
 
 ## Pós-condições:
 
-    Todas as requisições executadas, sejam elas bem-sucedidas (Cenário 1) ou falhas (Cenário 2), devem estar obrigatoriamente persistidas na trilha de auditoria do banco de dados, contendo a data, a ação, e o responsável pela requisição.
+Todas as requisições executadas, sejam elas bem-sucedidas (Cenário 1) ou falhas (Cenário 2), devem estar obrigatoriamente persistidas na trilha de auditoria do banco de dados, contendo a data, a ação, e o responsável pela requisição.
