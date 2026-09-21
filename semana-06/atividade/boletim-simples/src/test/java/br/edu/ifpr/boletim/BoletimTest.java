@@ -1,19 +1,17 @@
 package br.edu.ifpr.boletim;
 
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class BoletimTest {
 
     @Test
     void deveAprovarAlunoComMediaOito() {
-        // Preparar: criar o objeto que será testado.
         Boletim boletim = new Boletim();
 
-        // Executar: chamar um único método com uma entrada conhecida.
         String resultado = boletim.verificarSituacao(8);
 
-        // Verificar: comparar o resultado esperado com o resultado obtido.
         assertEquals("APROVADO", resultado);
     }
 
@@ -21,10 +19,8 @@ class BoletimTest {
     void deveRecuperarNotaAlunoComMediaQuatro() {
         Boletim boletim = new Boletim();
 
-        // Executar: chamar um único método com uma entrada conhecida.
         String resultado = boletim.verificarSituacao(4);
 
-        // Verificar: comparar o resultado esperado com o resultado obtido.
         assertEquals("RECUPERACAO", resultado);
     }
 
@@ -32,10 +28,8 @@ class BoletimTest {
     void deveReprovarAlunoComMediaDois() {
         Boletim boletim = new Boletim();
 
-        // Executar: chamar um único método com uma entrada conhecida.
         String resultado = boletim.verificarSituacao(2);
 
-        // Verificar: comparar o resultado esperado com o resultado obtido.
         assertEquals("REPROVADO", resultado);
     }
 
@@ -43,10 +37,46 @@ class BoletimTest {
     void deveCalcularMediaIgualCinco() {
         Boletim boletim = new Boletim();
 
-        double resultado = boletim.calcularMedia(5,5);
+        double resultado = boletim.calcularMedia(5, 5);
 
-        assertEquals(5,resultado);
-
+        assertEquals(5, resultado);
     }
-    // TODO: escrever os próximos testes durante a aula.
+
+    @Test
+    void deveCalcularMediaComParteDecimal() {
+        Boletim boletim = new Boletim();
+
+        double resultado = boletim.calcularMedia(6, 7);
+
+        assertEquals(6.5, resultado, 0.0001);
+    }
+
+    @Test
+    void deveRetornarZeroParaArrayVazio() {
+        Boletim boletim = new Boletim();
+
+        int resultado = boletim.contarAprovados(new double[] {});
+
+        assertEquals(0, resultado);
+    }
+
+    @Test
+    void deveContarUmAlunoAprovado() {
+        Boletim boletim = new Boletim();
+
+        int resultado = boletim.contarAprovados(new double[] {8});
+
+        assertEquals(1, resultado);
+    }
+
+    @Test
+    void deveContarAprovadosEmArrayComVariosAlunos() {
+        Boletim boletim = new Boletim();
+
+        int resultado = boletim.contarAprovados(
+                new double[] {8, 5, 7, 3}
+        );
+
+        assertEquals(2, resultado);
+    }
 }
